@@ -1,4 +1,4 @@
-package br.edu.ifpb.core.domain;
+package br.edu.ifpb.core.domain.cliente;
 
 import java.util.Objects;
 

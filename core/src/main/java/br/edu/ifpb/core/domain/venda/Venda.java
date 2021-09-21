@@ -1,4 +1,6 @@
-package br.edu.ifpb.core.domain;
+package br.edu.ifpb.core.domain.venda;
+
+import br.edu.ifpb.core.domain.produto.Produto;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
