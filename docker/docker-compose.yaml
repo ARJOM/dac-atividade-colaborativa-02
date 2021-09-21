@@ -1,0 +1,20 @@
+version: '3'
+services:   
+  core:
+    container_name: core
+    image: arjom/core
+    build: 
+      context: ../
+      dockerfile: ./docker/core/Dockerfile
+    ports: 
+     - "8080:8080"
+    depends_on: 
+     - banco
+    links: 
+     - "banco:host-banco"
+  banco:
+    container_name: banco
+    image: arjom/banco
+    build: ./database
+    ports: 
+    - "5433:5432"

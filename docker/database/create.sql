@@ -23,6 +23,7 @@ CREATE TABLE item_venda(
     produto int,
     venda int,
     valor_venda BIGINT,
+    quantidade int,
     CONSTRAINT item_venda_pk PRIMARY KEY (id)
     CONSTRAINT item_produto_fk FOREIGN KEY (produto)
     REFERENCES produtos(id),
