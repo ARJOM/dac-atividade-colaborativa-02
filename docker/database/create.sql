@@ -16,17 +16,17 @@ CREATE TABLE vendas(
     id serial,
     data_venda DATE,
     CONSTRAINT vendas_pk PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE item_venda(
-    id serial
+    id serial,
     produto int,
     venda int,
     valor_venda BIGINT,
     quantidade int,
-    CONSTRAINT item_venda_pk PRIMARY KEY (id)
+    CONSTRAINT item_venda_pk PRIMARY KEY (id),
     CONSTRAINT item_produto_fk FOREIGN KEY (produto)
     REFERENCES produtos(id),
     CONSTRAINT item_venda_fk FOREIGN KEY (venda)
-    REFERENCES vendas(id),
-)
+    REFERENCES vendas(id)
+);
