@@ -13,7 +13,7 @@
                           is-isolation-level-guaranteed="true" lazy-connection-association="false"
                           lazy-connection-enlistment="false" match-connections="false"
                           max-connection-usage-count="0"
-                          max-pool-size="32" max-wait-time-in-millis="60000"
+                          max-pool-size="64" max-wait-time-in-millis="60000"
                           name="post-gre-sql_jpa_postgresPool" non-transactional-connections="false"
                           pool-resize-quantity="2" res-type="javax.sql.DataSource"
                           statement-timeout-in-seconds="-1" steady-pool-size="8"
