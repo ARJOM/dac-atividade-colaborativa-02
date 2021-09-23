@@ -1,24 +1,50 @@
 package br.edu.ifpb.core.web;
 
-
 import br.edu.ifpb.core.domain.cliente.Cliente;
 import br.edu.ifpb.core.domain.cliente.ListaDeClientes;
+import br.edu.ifpb.core.domain.cliente.NovoCliente;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.annotation.WebServlet;
-import java.io.Serializable;
-import java.util.ArrayList;
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
-@Named
-public class ControladorClientes implements Serializable {
-
+@Named // Use @javax.faces.bean.ManagedBean on outdated environments.
+@RequestScoped // Use @javax.faces.bean.RequestScoped on outdated environments.
+public class Bean {
 
     @Inject
     private ListaDeClientes listarClientes;
+    @Inject
+    private NovoCliente cadastrarCliente;
 
-    public List<Cliente> listar(){
+    private Cliente cliente = new Cliente(0, "", "");;
+
+    public String submit() {
+        if (cliente.getId()==0){
+            this.create();
+        }
+        else{
+            this.update();
+        }
+        this.cliente = new Cliente(0, "", "");
+        return "/clientes/list.xhtml?faces-redirect=true";
+    }
+
+    private void update() {
+//        TODO Implementar atualização
+    }
+
+    private void create() {
+        cadastrarCliente.novoCliente(cliente);
+    }
+
+    public List<Cliente> list(){
         return this.listarClientes.todosOsClientes();
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
 }
