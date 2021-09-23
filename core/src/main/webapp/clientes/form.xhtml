@@ -7,9 +7,9 @@
 <f:view>
     <h:form>
         <h:outputLabel value="Nome"/>
-        <h:inputText value="#{controladorClientes.cliente.nome}" />
+        <h:inputText value="#{controladorClientes.getCliente().nome}" />
         <h:outputLabel value="CPF"/>
-        <h:inputText value="#{controladorClientes.cliente.cpf}" />
+        <h:inputText value="#{controladorClientes.getCliente().cpf}" />
         <h:commandButton value="submit" action="#{controladorClientes.submit}" />
     </h:form>
 </f:view>

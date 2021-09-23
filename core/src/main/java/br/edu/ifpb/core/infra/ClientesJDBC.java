@@ -114,7 +114,7 @@ public class ClientesJDBC implements Clientes {
                             "DELETE FROM clientela WHERE id=?"
                     );
             statement.setInt(1, id);
-            statement.executeQuery();
+            statement.executeUpdate();
         } catch (SQLException e) {
             Logger.getLogger(ClientesJDBC.class.getName()).log(Level.SEVERE,null,e);;
         }

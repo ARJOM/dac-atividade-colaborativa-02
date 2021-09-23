@@ -1,8 +1,6 @@
 package br.edu.ifpb.core.web;
 
-import br.edu.ifpb.core.domain.cliente.Cliente;
-import br.edu.ifpb.core.domain.cliente.ListaDeClientes;
-import br.edu.ifpb.core.domain.cliente.NovoCliente;
+import br.edu.ifpb.core.domain.cliente.*;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,8 +15,26 @@ public class ControladorClientes {
     private ListaDeClientes listarClientes;
     @Inject
     private NovoCliente cadastrarCliente;
+    @Inject
+    private EditarCliente editarCliente;
+    @Inject
+    private DeletarCliente deletarCliente;
 
     private Cliente cliente = new Cliente(0, "", "");
+
+    public List<Cliente> list(){
+        return this.listarClientes.todosOsClientes();
+    }
+
+    public String edit(Cliente cliente){
+        this.cliente = cliente;
+        return "/clientes/form.xhtml?faces-redirect=true";
+    }
+
+    public String delete(Cliente cliente){
+        deletarCliente.deletarCliente(cliente);
+        return "/clientes/list.xhtml?faces-redirect=true";
+    }
 
     public String submit() {
         if (cliente.getId()==0){
@@ -32,15 +48,11 @@ public class ControladorClientes {
     }
 
     private void update() {
-//        TODO Implementar atualização
+        editarCliente.editarCliente(cliente);
     }
 
     private void create() {
         cadastrarCliente.novoCliente(cliente);
-    }
-
-    public List<Cliente> list(){
-        return this.listarClientes.todosOsClientes();
     }
 
     public Cliente getCliente() {

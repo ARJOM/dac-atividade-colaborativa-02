@@ -22,7 +22,20 @@
             <f:facet name = "header">CPF</f:facet>
             #{cliente.cpf}
         </h:column>
+
+        <h:column>
+            <h:form>
+                <h:commandButton value="Editar" action="#{controladorClientes.edit(cliente)}" />
+            </h:form>
+        </h:column>
+
+        <h:column>
+            <h:form>
+                <h:commandButton value="Deletar" action="#{controladorClientes.delete(cliente)}" />
+            </h:form>
+        </h:column>
+
     </h:dataTable>
-    <a href="create.xhtml">Novo Cliente</a>
+    <a href="form.xhtml">Novo Cliente</a>
 </f:view>
 </html>
